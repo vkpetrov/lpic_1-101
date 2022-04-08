@@ -1,8 +1,22 @@
 Перед выполнением заданий важно самостоятельно повторить шаги, выполняемые на уроке.
 
 1) Изменить режим запуска по умолчанию ОС.
+systemctl get-default
+systemctl set-default multi-user.target
+systemctl reboot
 2) Переключиться между несколькими режимами работы.
+systemctl isolate {targetName}
+0 poweroff.target - Power off the Linux box.
+1 rescue.target - Boot into emergency rescue mode (single user mode).
+2 multi-user.target - Text based multi-user system that does not configure network interfaces and does not export networks services.
+3 multi-user.target - Starts the system normally in multi-user text mode for the Linux server usage.
+4 multi-user.target - For special purposes text mode. 
+5 graphical.target - Same as runlevel 3 and boot into GUI display manager.
+6 reboot.target - Reboot the Linux desktop or laptop.
 3) Убрать из автозапуска по умолчанию службу сети.
+systemctl stop networking
+systemctl disable networking
 4) Проверить статус службы аудио.
+systemctl status {audioServiceName}
 5) Перезагрузить ПК через работу с уровнями выполнения или таргетами.
 systemctl isolate reboot.target
